@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en" ng-app="LunchCheck">
+<html lang="en" ng-app="LunchCheck" ng-controller="LunchCheckController">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
+      .message { font-size: 1.3em; font-weight: bold; color: {{colour}}; border-style: solid; border-color: {{colour}}; }
     </style>
   </head>
 <body>
-   <div class="container" ng-controller="LunchCheckController">
+   <div class="container">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
