@@ -36,9 +36,12 @@
 	function ShoppingListCheckOffService() {
 		var service = this;
 
-		var toBuyItems = [{quantity:10, name:"cookies"},
-		                  {quantity:5, name:"carrots"},
-		                  {quantity:8, name:"sausages"}];
+		var toBuyItems = [{name:"cookies", quantity:10},
+		                  {name:"sausages", quantity:8},
+		                  {name:"carrots", quantity:5},
+		                  {name:"potatoes", quantity:20},
+		                  {name:"onions", quantity:4},
+		                  {name:"apple pies", quantity:2}];
 		var boughtItems = [];
 		
 		service.getItemsToBuy = function() {
