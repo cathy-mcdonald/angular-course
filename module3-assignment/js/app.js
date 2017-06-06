@@ -12,17 +12,27 @@
 		
 		narrowIt.searchTerm = '';
 		narrowIt.found = [];
+		narrowIt.nothingFound = false;
 		
 		narrowIt.search = function() {
 			
-			var promise = MenuSearchService.getMatchedMenuItems(narrowIt.searchTerm.toLowerCase());
+			if (narrowIt.searchTerm.trim() == '') {
+				narrowIt.found = [];
+				narrowIt.nothingFound = true;
+			}
+			else {
+				var promise = MenuSearchService.getMatchedMenuItems(narrowIt.searchTerm.toLowerCase());
+				
+				promise.then(function (response) {
+					narrowIt.found = response;	
+					narrowIt.nothingFound = (narrowIt.found.length == 0);
+			    })
+			    .catch(function (error) {
+			      console.log(error);
+			    });
+			}
 			
-			promise.then(function (response) {
-				narrowIt.found = response;				
-		    })
-		    .catch(function (error) {
-		      console.log(error);
-		    });
+					
 		}
 		
 		narrowIt.remove = function (index) {

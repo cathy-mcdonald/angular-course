@@ -51,7 +51,8 @@ input[type="text"] {
   }
 }
 .results {
-  float:left;
+  float: left;
+  clear: both;
 }
 tr td {
   padding: 5px;
