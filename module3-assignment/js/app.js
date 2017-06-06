@@ -18,7 +18,6 @@
 			var promise = MenuSearchService.getMatchedMenuItems(narrowIt.searchTerm.toLowerCase());
 			
 			promise.then(function (response) {
-				console.log(response)
 				narrowIt.found = response;				
 		    })
 		    .catch(function (error) {
@@ -27,8 +26,6 @@
 		}
 		
 		narrowIt.remove = function (index) {
-			console.log(index);
-			console.log(narrowIt.found);
 			narrowIt.found.splice(index, 1);
 		} 
 
