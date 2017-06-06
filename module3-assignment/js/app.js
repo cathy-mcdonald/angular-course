@@ -1,15 +1,17 @@
 (function() {
 	'use strict';
 
-	angular.module('NarrowItDownApp', []).controller('NarrowItDownController',
-			NarrowItDownController).service('MenuSearchService',
-			MenuSearchService);
+	angular.module('NarrowItDownApp', [])
+	.controller('NarrowItDownController', NarrowItDownController)
+	.service('MenuSearchService', MenuSearchService)
+	.directive('foundItems', FoundItemsDirective);
 
 	NarrowItDownController.$inject = [ 'MenuSearchService' ];
 	function NarrowItDownController(MenuSearchService) {
 		var narrowIt = this;
 		
 		narrowIt.searchTerm = '';
+		narrowIt.found = [];
 		
 		narrowIt.search = function() {
 			
@@ -23,6 +25,12 @@
 		      console.log(error);
 		    });
 		}
+		
+		narrowIt.remove = function (index) {
+			console.log(index);
+			console.log(narrowIt.found);
+			narrowIt.found.splice(index, 1);
+		} 
 
 	}
 
@@ -48,6 +56,18 @@
 				return foundItems;
 			});
 		}
+	}
+	
+	function FoundItemsDirective() {
+		var ddo = {
+			templateUrl: 'foundItems.html',
+		    scope: {
+		      found: '<',
+		      onRemove: '&'
+		    }
+		};
+		
+		return ddo;
 	}
 
 })();
