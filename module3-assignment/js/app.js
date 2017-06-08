@@ -21,7 +21,7 @@
 				narrowIt.nothingFound = true;
 			}
 			else {
-				var promise = MenuSearchService.getMatchedMenuItems(narrowIt.searchTerm.toLowerCase());
+				var promise = MenuSearchService.getMatchedMenuItems(narrowIt.searchTerm);
 				
 				promise.then(function (response) {
 					narrowIt.found = response;	
@@ -55,7 +55,7 @@
 				
 				// process result and only keep items that match
 				for (var i = 0; i < menuItems.length; i++) {
-					if (menuItems[i].description.indexOf(searchTerm) !== -1) {
+					if (menuItems[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
 						foundItems.push(menuItems[i]);
 					}
 				}
@@ -70,7 +70,8 @@
 			templateUrl: 'foundItems.html',
 		    scope: {
 		      found: '<',
-		      onRemove: '&'
+		      onRemove: '&',
+		      nothingFound: '<'
 		    }
 		};
 		
