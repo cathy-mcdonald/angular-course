@@ -1,1 +1,72 @@
-<h1>Signup page goes here</h1>
+<h2>Sign up for our restaurant newsletter</h2>
+<br/>
+<fieldset>
+	<form name="signupForm" novalidate>
+		<div class="form-group">
+			<label for="firstName">First Name:</label>
+			<input type="text" 
+				   class="form-control" 
+				   name="firstName"
+				   ng-model="signup.firstName"
+				   required>
+			<div ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched"
+				 class="alert-danger">
+            	Please provide first name
+          	</div>
+		</div>
+		<div class="form-group">
+			<label for="lastName">Last Name:</label>
+			<input type="text" 
+				   class="form-control" 
+				   name="lastName"
+				   ng-model="signup.lastName"
+				   required>
+			<div ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched"
+				 class="alert-danger">
+            	Please provide last name
+          	</div>
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" 
+				   class="form-control" 
+				   name="email"
+				   ng-model="signup.email"
+				   required>
+			<div ng-if="signupForm.email.$invalid && signupForm.email.$touched"
+				 class="alert-danger">
+            	Must be a valid email address: handle@domain format
+          	</div>
+		</div>
+		<div class="form-group">
+			<label for="phoneNumber">Phone Number:</label>
+			<input type="text" 
+				   class="form-control" 
+				   name="phoneNumber"
+				   ng-model="signup.phoneNumber"
+				   required
+				   pattern="\d{10}">
+			<div ng-if="signupForm.phoneNumber.$invalid && signupForm.phoneNumber.$touched"
+				 class="alert-danger">
+            	Must be 10 digits
+          	</div>
+		</div>
+		<div class="form-group">
+			<label for="favouriteDish">Favourite Dish:</label>
+			<input type="text"
+				   class="form-control" 
+				   name="favouriteDish"
+				   ng-model="signup.favouriteDish"
+				   required
+				   pattern="[A-Z,a-z]+\d+">
+			<div ng-if="signupForm.favouriteDish.$invalid && signupForm.favouriteDish.$touched"
+				 class="alert-danger">
+            	Choose a dish number e.g. A1
+          	</div>
+		</div>
+		<button
+		  class="btn btn-default"
+          ng-disabled="signupForm.$invalid"
+          ng-click="signup.submit()">Submit</button>
+	</form>
+</fieldset>
