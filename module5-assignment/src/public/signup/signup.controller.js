@@ -11,6 +11,7 @@ function SignupController(SignupService, MenuService) {
   $ctrl.submit = function () {
   	$ctrl.menuItemNotFound = false;
   	$ctrl.submitted = false;
+  	$ctrl.details.favouriteDish = $ctrl.details.favouriteDish.toUpperCase();
   	
   	MenuService.getMenuItem($ctrl.details.favouriteDish)
   	.then(function(menuItem) {

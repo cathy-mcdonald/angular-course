@@ -1,8 +1,9 @@
 <div class="container">
 		
 	<h3>Sign up for our newsletter</h3>
-	<br/>
 	<div ng-controller="SignupController as signup">
+		<div ng-if="!signup.submitted"><br/></div>
+		<div ng-if="signup.submitted" class="alert-success">Your information has been saved</div>
 		<fieldset >
 			<form name="signupForm" novalidate>
 				<div class="form-group">
@@ -71,7 +72,5 @@
 		          ng-click="signup.submit()">Submit</button>
 			</form>
 		</fieldset>
-		<br/>
-		<div ng-if="signup.submitted">Your information has been saved</div>
 	</div>
 </div>
