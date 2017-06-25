@@ -6,9 +6,9 @@ angular.module('common')
 
 function SignupService() {
   var service = this;
+  service.signupDetails = {};
   
   service.saveSignup = function(signupDetails) {
-  	console.log(signupDetails);
   	service.signupDetails = signupDetails;
   };
   
