@@ -59,12 +59,10 @@
 					<input type="text"
 						   class="form-control" 
 						   name="favouriteDish"
-						   ng-model="signup.details.favouriteDish"
-						   required
-						   pattern="[A-Z,a-z]+\d+">
-					<div ng-if="signupForm.favouriteDish.$invalid && signupForm.favouriteDish.$touched"
+						   ng-model="signup.details.favouriteDish">
+					<div ng-if="signup.menuItemNotFound"
 						 class="alert-danger">
-		            	Choose a dish number e.g. A1
+		            	No such menu number exists
 		          	</div>
 				</div>
 				<button
